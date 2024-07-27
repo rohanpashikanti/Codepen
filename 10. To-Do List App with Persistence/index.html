@@ -1,0 +1,503 @@
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-DO-List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-...." crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Your+Calligraphy+Font&display=swap">
+    <style>
+      body{
+        margin: 0%;
+        background-color: black;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      }
+      .name{
+        margin : 1%;
+      }
+      p{
+        font-size: 15px;
+        color: beige;
+        float: right;
+      }
+      .head {
+        overflow: hidden;
+      }
+      .head img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }      
+      p1{
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        color: beige;
+        font-size: 35px;
+      }
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      li::before {
+        content: "-"; 
+        color: #000; 
+        margin-right: 0.5em; 
+      }
+      .left{
+        float: left;
+        background-color: rgb(113, 40, 122);
+        border-radius: 16px;
+        height:max-content;
+        width: 25%;
+        margin: 2%;
+      }
+      .t{
+        margin: 10px;
+        margin-left: -2px;
+        border: none;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+        padding: 8px;
+        height: 80px;
+        width: 75px;
+        background-color:rgb(18, 227, 109);
+        text-align: center;
+        font-size: 45px;
+      }  
+      .ins{
+        align-items: center;
+      }
+      .right{
+        float: right;
+        background-color: rgb(113, 40, 122);
+        border-radius: 16px;
+        height: fit-content;
+        width: 25%;
+        margin: 2%;
+      }
+      .b1,.time{
+        margin:  20px;
+        padding: 1%;
+      }
+      .social a {
+        text-decoration: none;
+        margin: 3%;
+        color: black;
+        display: inline-block;
+      }
+      .social {
+        margin-left: 20px;
+      }
+      .a{
+        color: black;
+        border: none;
+        border-radius: 16px;
+        box-shadow: 2px;
+      }
+      .mid {
+        background-color: rgb(113, 40, 122);
+        border-radius: 16px;
+        height: fit-content;
+        width: 40%;
+        margin: auto;
+        margin: 2%; 
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+        justify-content: center; 
+      }
+      .a1{
+        background-color:whitesmoke;
+        padding: 5%;
+        border-radius: 16px;
+        margin: 2%;
+      }
+      input{
+        border: none;
+        height: 35px;
+        border-radius: 10px;
+        text-align: center;
+      }
+      p2{
+        cursor: pointer;
+      }
+      .completed {
+        text-decoration: line-through;
+        color: #808080; 
+      }
+      .container {
+        width: fit-content;
+        height: fit-content;
+        margin: 15px;
+        background-color: whitesmoke;
+        border-radius: 10px;
+      }
+      h1 {
+        color: #333;
+        text-align: center;
+      }
+      textarea {
+        width: 400px;
+        height: 420px;
+        resize: none;
+        margin: 10px;
+        padding: 10%;
+        box-sizing: border-box;
+        border: 1px none #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+      p3{
+        font-size: 40px;
+        color: rgb(113, 40, 122) ;
+      }
+      table {
+          float: right;
+          align-items: center;
+            width: 1000px;
+            height: fit-content;
+            border-collapse: collapse;
+            margin: 20px;
+          border-radius: 20px;
+          overflow: hidden;
+      }
+      th, td {
+            border: 1px none #ddd;
+            padding: 15px;
+            text-align: center;
+      }
+
+      th {
+            background-color: rgb(113, 40, 122);
+      }
+
+      td {
+            height: 80px;
+            position: relative;
+            background-color: whitesmoke;
+      }
+
+      td div {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            text-align: center;
+      }
+      td div[contentEditable="true"]:hover {
+            border: 2px solid blue;
+      }
+    </style>
+  </head>
+  <body>
+    <!---Left side-->
+    <div class="head">
+      <nav>
+          <img src="https://wallpapercave.com/wp/wp6024594.jpg" alt="Header Image">
+      </nav>
+    </div>
+    <div class="Name">
+      <p1 style="text-align: center; padding-left: 25px;">Rohan Pashikanti 	&#10084; </p1><p style="padding-right: 27px;" id="currentDate"></p>
+    </div>
+    <marquee onmouseover="this.stop()" onmouseout="this.start()"><p1 style="color: aliceblue; font-family: 'Your Calligraphy Font', cursive;">・❥・Explore Dream Discover・❥・</p1></marquee>
+    <div class="left">
+      <div class="time">
+        <center>
+          <p1 style="color: black;">Time &#10084; </p1><br>
+          <input type="number" id="hours" min="1" max="12" placeholder="1" class="t" required>
+          <input type="number" id="minutes" min="0" max="59" placeholder="00" class="t" required>
+          <select id="ampm" required style="height: 35px; background-color: rgb(18, 227, 109); border: none; border-radius: 10px;">
+            <option value="AM">AM</option>
+            <option value="PM">PM</option>
+          </select>
+        </center>
+      </div><br>
+      <div class="ins">
+        <center>
+          <img src="https://wallpapercave.com/dwp2x/wp7232041.jpg" height="55%" width="95%">
+        </center>
+      </div>
+    </div>  
+    <!---Right side-->
+    <div class="right">
+      <div class="b1">
+        <center>
+          <p1 style="font-size: 25px; color: black;">WEEKLY TO DO'S &#127808;</p1>
+        </center><br>
+        <p2 onclick="mon()">&#127807; Monday</p2><br>
+        <p2 onclick="tue()">&#127807; Tueday</p2><br>
+        <p2 onclick="wed()">&#127807; Wednesday</p2><br>
+        <p2 onclick="thu()">&#127807; Thursday</p2><br>
+        <p2 onclick="fri()">&#127807; Friday</p2><br>
+        <p2 onclick="sat()">&#127807; Saturday</p2><br>
+        <p2 onclick="sun()">&#127807; Sunday</p2><br>
+      </div>
+      <br><br><br>
+      <div>
+        <center>
+          <img src="https://images.pexels.com/photos/844297/pexels-photo-844297.jpeg?auto=compress&cs=tinysrgb&w=800" height="200px" width="300px">
+        </center>
+      </div>
+      <br><br><br>
+      <div class="a">
+        <center><p1 style="color: black;">Attachments</p1>  <i class="material-icons">cloud</i></center>
+      </div>
+      <div class="social">
+        <a href="https://drive.google.com/drive/folders/1xrdKvUNQWtXhHsU-CrVsQ-2dy_YsDYam"><i class='fab fa-google-drive'></i>   Google Drive</a><br>
+        <a href="https://www.linkedin.com/in/rohan-pashikanti-b84894298/"><i class="fab fa-linkedin"></i>      LinkedIn</a><br>
+        <a href="https://www.instagram.com/rohanpashikanti/"><i class="fab fa-instagram"></i>     Instagram</a>
+      </div>
+      <br><br>
+    </div>
+    <!---Center-->
+    <div class="mid">
+      <p1 style="color: black;">To-Do List &#127769;</p1>
+      <div class="a1" id="mon" style="display: block;">
+        <p2>&#10084; Monday</p2>
+        <div class="todoList">
+          <ul id="tasks-mon"></ul>
+          <input type="text" class="newTask" id="newTask-mon" placeholder="Add a new task">
+          <button onclick="addTask('mon')">・❥・</button>
+        </div>
+        <br>
+      </div>
+    
+      <div class="a1" id="tue" style="display: none;">
+        <p2>&#10084; Tuesday</p2>
+        <div class="todoList">
+          <ul id="tasks-tue"></ul>
+          <input type="text" class="newTask" id="newTask-tue" placeholder="Add a new task">
+          <button onclick="addTask('tue')">・❥・</button>
+        </div>
+        <br>
+      </div>
+    
+      <div class="a1" id="wed" style="display: none;">
+        <p2>&#10084; Wednesday</p2>
+        <div class="todoList">
+          <ul id="tasks-wed"></ul>
+          <input type="text" class="newTask" id="newTask-wed" placeholder="Add a new task">
+          <button onclick="addTask('wed')">・❥・</button>
+        </div>
+        <br>
+      </div>
+    
+      <div class="a1" id="thu" style="display: none;">
+        <p2>&#10084; Thursday</p2>
+        <div class="todoList">
+          <ul id="tasks-thu"></ul>
+          <input type="text" class="newTask" id="newTask-thu" placeholder="Add a new task">
+          <button onclick="addTask('thu')">・❥・</button>
+        </div>
+        <br>
+      </div>
+    
+      <div class="a1" id="fri" style="display: none;">
+        <p2>&#10084; Friday</p2>
+        <div class="todoList">
+          <ul id="tasks-fri"></ul>
+          <input type="text" class="newTask" id="newTask-fri" placeholder="Add a new task">
+          <button onclick="addTask('fri')">・❥・</button>
+        </div>
+        <br>
+      </div>
+    
+      <div class="a1" id="sat" style="display: none;">
+        <p2>&#10084; Saturday</p2>
+        <div class="todoList">
+          <ul id="tasks-sat"></ul>
+          <input type="text" class="newTask" id="newTask-sat" placeholder="Add a new task">
+          <button onclick="addTask('sat')">・❥・</button>
+        </div>
+        <br>
+      </div>
+    
+      <div class="a1" id="sun" style="display: none;">
+        <p2>&#10084; Sunday</p2>
+        <div class="todoList">
+          <ul id="tasks-sun"></ul>
+          <input type="text" class="newTask" id="newTask-sun" placeholder="Add a new task">
+          <button onclick="addTask('sun')">・❥・</button>
+        </div>
+        <br>
+      </div>
+      <br>
+    </div>
+    <div class="mid">
+      <center>
+        <div class="container">
+          <p1 style="color: #000;">Brain Dump</p1><br>
+          <textarea id="brainDump" placeholder="Write down your thoughts, ideas, or anything on your mind..."></textarea>
+        </div>
+      </center>
+    </div>
+    <br><br>
+    
+  </body>
+  <script>
+    function updateTime() {
+        const now = new Date();
+        let hours = now.getHours();
+        let minutes = now.getMinutes();
+        const ampm = hours >= 12 ? 'PM' : 'AM';
+
+        hours = hours % 12 || 12; 
+
+        document.getElementById('hours').value = String(hours).padStart(2, '0');
+        document.getElementById('minutes').value = String(minutes).padStart(2, '0');
+        document.getElementById('ampm').value = ampm;
+    }
+
+    setInterval(updateTime, 1000);
+
+    updateTime();
+    function toggleTask(task) {
+      task.classList.toggle('completed');
+    }
+    function addTask(day) {
+        const input = document.getElementById(`newTask-${day}`);
+        const taskText = input.value.trim();
+
+        if (taskText !== '') {
+            const tasksList = document.getElementById(`tasks-${day}`);
+            const newTask = document.createElement('li');
+            newTask.textContent = taskText;
+            newTask.onclick = function () {
+                toggleTask(this);
+            };
+            tasksList.appendChild(newTask);
+            input.value = '';
+        }
+    }
+    function formatDate(date) {
+        const day = date.getDate().toString().padStart(2, '0');
+        const month = (date.getMonth() + 1).toString().padStart(2, '0');
+        const year = date.getFullYear();
+        return `${day}/${month}/${year}`;
+    }
+    
+    const currentDate = new Date();
+        
+    document.getElementById('currentDate').innerText = `Today's Date: ${formatDate(currentDate)}`;
+    function mon() {
+      document.getElementById("mon").style.display = "block";
+      document.getElementById("tue").style.display = "none";
+      document.getElementById("wed").style.display = "none";
+      document.getElementById("thu").style.display = "none";
+      document.getElementById("fri").style.display = "none";
+      document.getElementById("sat").style.display = "none";
+      document.getElementById("sun").style.display = "none";
+    }
+    function tue() {
+      document.getElementById("mon").style.display = "none";
+      document.getElementById("tue").style.display = "block";
+      document.getElementById("wed").style.display = "none";
+      document.getElementById("thu").style.display = "none";
+      document.getElementById("fri").style.display = "none";
+      document.getElementById("sat").style.display = "none";
+      document.getElementById("sun").style.display = "none";
+    }
+    function wed() {
+      document.getElementById("mon").style.display = "none";
+      document.getElementById("tue").style.display = "none";
+      document.getElementById("wed").style.display = "block";
+      document.getElementById("thu").style.display = "none";
+      document.getElementById("fri").style.display = "none";
+      document.getElementById("sat").style.display = "none";
+      document.getElementById("sun").style.display = "none";
+    }
+    function thu() {
+      document.getElementById("mon").style.display = "none";
+      document.getElementById("tue").style.display = "none";
+      document.getElementById("wed").style.display = "none";
+      document.getElementById("thu").style.display = "block";
+      document.getElementById("fri").style.display = "none";
+      document.getElementById("sat").style.display = "none";
+      document.getElementById("sun").style.display = "none";
+    }
+    function fri() {
+      document.getElementById("mon").style.display = "none";
+      document.getElementById("tue").style.display = "none";
+      document.getElementById("wed").style.display = "none";
+      document.getElementById("thu").style.display = "none";
+      document.getElementById("fri").style.display = "block";
+      document.getElementById("sat").style.display = "none";
+      document.getElementById("sun").style.display = "none";
+    }
+    function sat() {
+      document.getElementById("mon").style.display = "none";
+      document.getElementById("tue").style.display = "none";
+      document.getElementById("wed").style.display = "none";
+      document.getElementById("thu").style.display = "none";
+      document.getElementById("fri").style.display = "none";
+      document.getElementById("sat").style.display = "block";
+      document.getElementById("sun").style.display = "none";
+    }
+    function sun() {
+      document.getElementById("mon").style.display = "none";
+      document.getElementById("tue").style.display = "none";
+      document.getElementById("wed").style.display = "none";
+      document.getElementById("thu").style.display = "none";
+      document.getElementById("fri").style.display = "none";
+      document.getElementById("sat").style.display = "none";
+      document.getElementById("sun").style.display = "block";
+    }
+    <!--Calender part-->
+    function generateCalendar() {
+        const currentDate = new Date();
+        const currentYear = currentDate.getFullYear();
+        const currentMonth = currentDate.getMonth();
+
+        const firstDay = new Date(currentYear, currentMonth, 1);
+        const lastDay = new Date(currentYear, currentMonth + 1, 0);
+
+        document.getElementById('currentMonthYear').innerText = `${firstDay.toLocaleString('default', { month: 'long' })} ${currentYear}`;
+
+        const tbody = document.querySelector('#calendarTable tbody');
+        tbody.innerHTML = '';
+
+        let date = new Date(firstDay);
+
+        while (date <= lastDay) {
+            const row = document.createElement('tr');
+
+            for (let i = 0; i < 7; i++) {
+                const cell = document.createElement('td');
+                const cellContent = document.createElement('div');
+                cellContent.contentEditable = true;
+
+                const dateSpan = document.createElement('span');
+                dateSpan.style.fontWeight = 'bold';
+                dateSpan.textContent = date.getDate();
+                const notesSpan = document.createElement('span');
+
+                cellContent.appendChild(dateSpan);
+                cellContent.appendChild(document.createElement('br'));
+                cellContent.appendChild(notesSpan);
+
+                cell.appendChild(cellContent);
+                row.appendChild(cell);
+
+                date.setDate(date.getDate() + 1);
+            }
+
+            tbody.appendChild(row);
+        }
+    }
+
+    generateCalendar();
+
+    document.getElementById('calendarTable').addEventListener('input', function (event) {
+        const target = event.target;
+
+        if (target.nodeName === 'DIV' && target.contentEditable === 'true') {
+            const enteredText = target.innerText.trim();
+
+            if (enteredText !== '') {
+                target.innerHTML = `<span style="font-weight: bold">${target.previousSibling.textContent}</span><br>${enteredText}`;
+            }
+        }
+    });
+  </script>
+</html>
