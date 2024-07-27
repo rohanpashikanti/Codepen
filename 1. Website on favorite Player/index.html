@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MS Dhoni</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel='stylesheet' href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css'>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="absolute top-0 left-0 w-full z-50 h-screen flex justify-center items-center p-4 md:p-6 lg:p-8">
+    <div class="max-w-lg bg-gradient-to-b from-white/60 to-white/30 text-[#1c0708] backdrop-blur-[.65em] border-[1px] border-solid border-white border-opacity-10 rounded-2xl shadow-black/50 overflow-hidden shadow-2xl hover:-translate-y-1 hover:shadow-black/75 hover:backdrop-blur-[1em] transition">
+      <div class="grid place-items-center grid-cols-6 gap-2">
+        <div class="col-span-3 p-8">
+          <h2 class="font-bold text-2xl">
+            Mahendra Singh Dhoni
+          </h2>
+          <div class="tag-lines">
+            <span class="tag">Captain</span> <span class="tag">Wicketkeeper</span> <span class="tag">Finisher</span>
+          </div>
+          <p class="text-sm text-[#1c0708]/60">
+            MS Dhoni, a legendary Indian cricketer, rose from wicket-keeping in local matches to become a powerful batsman and captain. Debuting in 2004, he led India to victory in the 2007 T20 World Cup, the 2011 World Cup, and the 2013 Champions Trophy. Known for his cool finishing and iconic helicopter shot, Dhoni is one of India's most decorated captains.
+          </p>
+          <div class="panel-heading active" id="headingOne" role="tab">
+            <h4 class="panel-title">
+              <a aria-controls="collapseOne" aria-expanded="true" class="mt-6 py-3 px-5 inline-flex bg-[#e84118] hover:bg-[#c23616] transition-colors text-gray-200 font-bold rounded-full text-sm collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapseOne" role="button">See More</a>
+            </h4>
+          </div>
+        </div>
+      </div>
+      <div aria-labelledby="headingOne" class="panel-collapse collapse" id="collapseOne" role="tabpanel">
+        <div class="panel-body">
+          <div class="panel-top">
+            <div class="level-item">
+              <div>
+                <div class="heading">
+                  Awards and Achievements
+                </div>
+                <div class="heading">
+                  Career Stats
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="achievements">
+            <h3 class="achievements">
+              Awards and Achievements:
+            </h3>
+            <ul class="achievements">
+              <li>
+                Major Dhyan Chand Khel Ratna Award (2008)
+                Padma Shri (2009)
+                Padma Bhushan (2018)
+              </li>
+            </ul>
+          </div>
+          <div class="career">
+            <h3 class="career">
+              Career Stats:
+            </h3>
+            <ul class="career">
+              <li>
+                  Test: Matches - 90, Runs - 4876, Avg - 38.00 (approx)
+                  ODI: Matches - 350, Runs - 10773, Avg - 50.00 (approx)
+                  T20I: Matches - 377, Runs - 1617 (approx)
+
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/ionicons/7.1.2/esm/ionicons.min.js'></script>
+<script  src="./script.js"></script>
+</html>
