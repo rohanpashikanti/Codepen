@@ -1,0 +1,50 @@
+body{
+    margin: 0%;
+    background-image: url('https://w0.peakpx.com/wallpaper/390/257/HD-wallpaper-macos-ventura-ios-16-dark-wwdc-2022-apple.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+h1{
+    margin: 0;
+    padding: 2px;
+}
+p1{
+    font-size: 23px;
+    color:whitesmoke;
+}
+p2{
+    font-size: 15px;
+    letter-spacing: 1px;
+    float: right;
+}
+a{
+    border: 1px solid whitesmoke;
+    border-radius: 12px;
+    padding: 7px;
+    color: whitesmoke;
+    text-decoration: none;
+}
+p3{
+    font-size: 50px;
+    width: 20px;
+    letter-spacing: 3px;
+    color:wheat;
+}
+p4{
+    font-size: 20px;
+    letter-spacing: 2px;
+    color: wheat;
+}
+th{
+    text-transform: capitalize;
+    color:wheat;
+    text-align: left;
+    padding-right: 10px;
+}
+div.a{
+    width: 80%;
+    height: 80%;
+    background-color: black;
+    opacity: 0.6;
+}
